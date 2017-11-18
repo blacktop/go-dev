@@ -6,16 +6,6 @@ LABEL maintainer "https://github.com/blacktop"
 ## INSTALL GOLANG #####
 #######################
 
-# gcc for cgo
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		g++ \
-		gcc \
-		libc6-dev \
-    git-core \
-		make \
-		pkg-config \
-	&& rm -rf /var/lib/apt/lists/*
-
 ENV GO_VERSION 1.9.2
 
 RUN buildDeps='ca-certificates wget' \
@@ -54,7 +44,7 @@ RUN apt-get update && apt-get install -y software-properties-common \
 COPY vimrc ~/.config/nvim/init.vim
 # RUN ln -s ~/.vimrc ~/.config/nvim/init.vim
 
-RUN buildDeps='ca-certificates curl' \
+RUN buildDeps='ca-certificates curl git' \
   && set -x \
   && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
   && curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -63,6 +53,29 @@ RUN buildDeps='ca-certificates curl' \
   && apt-get purge -y --auto-remove $buildDeps $(apt-mark showauto) \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/*
+
+#######################
+## INSTALL MISC. ######
+#######################
+
+# gcc for cgo
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		g++ \
+		gcc \
+		libc6-dev \
+    git \
+		make \
+		pkg-config \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
+
+# zsh & tmux
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		zsh \
+		tmux \
+		tmuxinator \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
   && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
