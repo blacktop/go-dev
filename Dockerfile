@@ -47,6 +47,7 @@ RUN mkdir -p ~/.config/nvim
 COPY vimrc ~/.config/nvim/init.vim
 RUN ln -s ~/.config/nvim/init.vim ~/.vimrc
 
+# Install vim plugin manager
 RUN buildDeps='ca-certificates curl' \
   && set -x \
   && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
@@ -57,7 +58,8 @@ RUN buildDeps='ca-certificates curl' \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/*
 
-RUN buildDeps='ca-certificates wget' \
+# Install vim fonts
+RUN buildDeps='ca-certificates wget fontconfig' \
   && set -x \
   && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
   && mkdir -p $HOME/.fonts $HOME/.config/fontconfig/conf.d \
@@ -72,7 +74,8 @@ RUN buildDeps='ca-certificates wget' \
 
 # Install vim plugins
 COPY install-vim-plugins /tmp/install-vim-plugins
-RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins
+# RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins
+RUN nvim -E -u NONE -S ~/.vimrc +qall
 
 #######################
 ## INSTALL MISC. ######
