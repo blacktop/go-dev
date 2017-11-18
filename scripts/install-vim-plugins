@@ -7,3 +7,5 @@ echo "===> nvim GoUpdateBinaries..."
 nvim -c ':GoUpdateBinaries' -c ':qa!'
 # deoplete-go
 go get -u github.com/nsf/gocode
+# sebdah/vim-delve
+go get github.com/derekparker/delve/cmd/dlv

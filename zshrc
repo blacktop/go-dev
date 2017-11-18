@@ -59,7 +59,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  zsh-autosuggestions common-aliases git go tmux
+  zsh-autosuggestions common-aliases git go
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -80,6 +80,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Golang
 alias cdgo='CDPATH=.:$GOPATH/src/github.com:$GOPATH/src/golang.org:$GOPATH/src'
+
+alias vi="nvim"
+alias vim="nvim"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

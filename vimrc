@@ -433,7 +433,7 @@ let g:NERDTreeChDirMode = 2
 "----------------------------------------------
 " Set the Delve backend.
 let g:delve_backend = "native"
-
+let g:delve_enable_syntax_highlighting = 1
 "----------------------------------------------
 " Plugin: Shougo/neosnippet
 "----------------------------------------------

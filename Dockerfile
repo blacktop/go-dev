@@ -6,11 +6,13 @@ LABEL maintainer "https://github.com/blacktop"
 ## INSTALL NEOVIM #####
 #######################
 
-RUN apk add --no-cache neovim git ca-certificates python3
+RUN apk add --no-cache neovim git ca-certificates python3 gcc
 
 RUN mkdir -p /root/.config/nvim
 COPY vimrc /root/.config/nvim/init.vim
 RUN ln -s /root/.config/nvim/init.vim /root/.vimrc
+COPY nvim/snippets /root/.config/nvim/snippets
+COPY nvim/spell /root/.config/nvim/spell
 
 # Install vim plugin manager
 RUN apk add --no-cache curl \
@@ -49,6 +51,8 @@ RUN apk add --no-cache \
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
 
 COPY zshrc /root/.zshrc
+COPY tmux.conf /root/.tmux.conf
+COPY tmux.linux.conf /root/.tmux.linux.conf
 
 # RUN go get -d -v github.com/maliceio/engine/... || true
 
