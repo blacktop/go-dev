@@ -6,7 +6,7 @@ LABEL maintainer "https://github.com/blacktop"
 ## INSTALL NEOVIM #####
 #######################
 
-RUN apk add --no-cache neovim git ca-certificates
+RUN apk add --no-cache neovim git ca-certificates python3
 
 RUN mkdir -p /root/.config/nvim
 COPY vimrc /root/.config/nvim/init.vim
@@ -32,7 +32,6 @@ RUN apk add --no-cache wget fontconfig \
 # Install vim plugins
 COPY install-vim-plugins /tmp/install-vim-plugins
 RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins || true
-# RUN nvim -E -u NONE -S ~/.config/nvim/init.vim +qall > /dev/null
 
 #######################
 ## INSTALL MISC. ######
