@@ -10,7 +10,7 @@ size: ## Update docker image size in README.md
 	sed -i.bu 's/docker%20image-.*-blue/docker%20image-$(shell docker images --format "{{.Size}}" $(ORG)/$(NAME):$(VERSION)| cut -d' ' -f1)-blue/' README.md
 
 .PHONY: ssh
-ssh: ## SSH into docker image
+ssh: build ## SSH into docker image
 	docker run -ti --rm $(ORG)/$(NAME):$(VERSION)
 
 .PHONY: push
