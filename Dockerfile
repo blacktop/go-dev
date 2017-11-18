@@ -28,6 +28,8 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
+COPY go-wrapper /usr/local/bin/
+
 #######################
 ## INSTALL NEOVIM #####
 #######################
@@ -41,8 +43,9 @@ RUN apt-get update && apt-get install -y software-properties-common \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/*
 
+RUN mkdir -p ~/.config/nvim
 COPY vimrc ~/.config/nvim/init.vim
-# RUN ln -s ~/.vimrc ~/.config/nvim/init.vim
+RUN ln -s ~/.config/nvim/init.vim ~/.vimrc
 
 RUN buildDeps='ca-certificates curl' \
   && set -x \
@@ -51,6 +54,19 @@ RUN buildDeps='ca-certificates curl' \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
   && echo "===> Clean up unnecessary files..." \
   && apt-get purge -y --auto-remove $buildDeps \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/*
+
+RUN buildDeps='ca-certificates wget' \
+  && set -x \
+  && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
+  && mkdir -p $HOME/.fonts $HOME/.config/fontconfig/conf.d \
+  && wget -P $HOME/.fonts                     https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf \
+  && wget -P $HOME/.config/fontconfig/conf.d/ https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf \
+  && fc-cache -vf $HOME/.fonts/ \
+  && echo "set guifont=Droid\\ Sans\\ Mono\\ 10" \
+  && echo "===> Clean up unnecessary files..." \
+  && apt-get purge -y --auto-remove $buildDeps $(apt-mark showauto) \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/*
 

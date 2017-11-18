@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "===> PlugInstall..."
-nvim :silent :PlugInstall :qa || true
+nvim -c ':PlugInstall' -c ':qa!'
 
 echo "===> GoUpdateBinaries..."
-nvim :silent :GoUpdateBinaries :qa || true
+nvim -c ':GoUpdateBinaries' -c ':qa!'
+# nvim -c ':silent :GoUpdateBinaries :qa || true
