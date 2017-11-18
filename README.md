@@ -24,3 +24,8 @@ Features
   - [vim-plug](https://github.com/junegunn/vim-plug)
 - Plugins  
   - [vim-go](https://github.com/fatih/vim-go)
+
+NOTES  
+-----
+
+- https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876
