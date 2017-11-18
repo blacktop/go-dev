@@ -15,7 +15,8 @@ Features
 --------
 
 - language: [golang](https://golang.org/dl/) - `1.9.2`  
-- vim: [NeoVim](https://neovim.io) - `2.2.0`  
+- editor: [NeoVim](https://neovim.io) - `2.2.0`  
+- shell: [zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 ### vim  
 
@@ -26,7 +27,3 @@ Plugin Manager
 Plugins  
 
 - [vim-go](https://github.com/fatih/vim-go)
-
-### shell
-
-- [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
