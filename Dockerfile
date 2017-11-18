@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		g++ \
 		gcc \
 		libc6-dev \
+    git-core \
 		make \
 		pkg-config \
 	&& rm -rf /var/lib/apt/lists/*
@@ -46,14 +47,14 @@ RUN apt-get update && apt-get install -y software-properties-common \
   && apt-get update \
   && apt-get install -y neovim \
   && echo "===> Clean up unnecessary files..." \
-  && apt-get purge -y --auto-remove software-properties-common $(apt-mark showauto) \
+  && apt-get purge -y --auto-remove software-properties-common \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/*
 
-COPY vimrc ~/.vimrc
-RUN ln -s ~/.vimrc ~/.config/nvim/init.vim
+COPY vimrc ~/.config/nvim/init.vim
+# RUN ln -s ~/.vimrc ~/.config/nvim/init.vim
 
-RUN buildDeps='ca-certificates curl git' \
+RUN buildDeps='ca-certificates curl' \
   && set -x \
   && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
   && curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
