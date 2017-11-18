@@ -31,7 +31,7 @@ RUN apk add --no-cache wget fontconfig \
 
 # Install vim plugins
 COPY install-vim-plugins /tmp/install-vim-plugins
-RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins
+RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins || true
 # RUN nvim -E -u NONE -S ~/.config/nvim/init.vim +qall > /dev/null
 
 #######################
