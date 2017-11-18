@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.9.2-alpine
 
 LABEL maintainer "https://github.com/blacktop"
 
@@ -19,18 +19,22 @@ RUN apk add --no-cache curl \
   && rm -rf /tmp/* \
   && apk del --purge curl
 
-# Install vim fonts
-RUN apk add --no-cache wget fontconfig \
-  && mkdir -p $HOME/.fonts $HOME/.config/fontconfig/conf.d \
-  && wget -P $HOME/.fonts                     https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf \
-  && wget -P $HOME/.config/fontconfig/conf.d/ https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf \
-  && fc-cache -vf $HOME/.fonts/ \
-  && echo "set guifont=Droid\\ Sans\\ Mono\\ 10" \
-  && rm -rf /tmp/* \
-  && apk del --purge wget fontconfig
+# Install vim fonts (fonts should be installed on host's terminal running docker)
+# COPY scripts/install-fonts /tmp/install-fonts
+# RUN apk add --no-cache fontconfig
+# RUN apk add --no-cache -t .build-deps wget \
+#   && echo "===> Installing Fonts..." \
+#   && chmod +x /tmp/install-fonts && /tmp/install-fonts \
+#   && rm -rf /tmp/* \
+#   && apk del --purge .build-deps
 
 # Install vim plugins
-COPY install-vim-plugins /tmp/install-vim-plugins
+RUN apk add --no-cache -t .build-deps build-base python3-dev \
+  && pip3 install -U neovim \
+  && rm -rf /tmp/* \
+  && apk del --purge .build-deps
+
+COPY scripts/install-vim-plugins /tmp/install-vim-plugins
 RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins || true
 
 #######################
@@ -45,5 +49,7 @@ RUN apk add --no-cache \
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
 
 COPY zshrc /root/.zshrc
+
+# RUN go get -d -v github.com/maliceio/engine/... || true
 
 ENTRYPOINT ["zsh"]

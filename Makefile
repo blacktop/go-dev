@@ -1,12 +1,18 @@
 ORG=blacktop
 NAME=go-dev
-VERSION=1.0
+VERSION?=$(shell cat VERSION)
 
-build: ## Build docker image
+all: build size
+
+.PHONY: dockerfile
+dockerfile: ## Update Dockerfiles
+	@sed -i.bu 's/FROM golang:[0-9.]\{5\}-alpine/FROM golang:$(VERSION)-alpine/' Dockerfile
+
+build: dockerfile ## Build docker image
 ifeq "$(VERSION)" "ubuntu"
 	docker build -f Dockerfile.ubuntu -t $(ORG)/$(NAME):ubuntu .
 else
-	docker build -t $(ORG)/$(NAME):$(VERSION) .
+	docker build --squash -t $(ORG)/$(NAME):$(VERSION) .
 endif
 
 .PHONY: size

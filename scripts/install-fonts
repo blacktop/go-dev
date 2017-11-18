@@ -1,0 +1,18 @@
+#!/bin/sh
+
+
+mkdir -p /root/.fonts /root/.config/fontconfig/conf.d
+wget --progress=bar:force -P /root/.fonts                     https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+wget --progress=bar:force -P /root/.config/fontconfig/conf.d/ https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+
+for type in Bold Light Medium Regular Retina; do
+    wget --progress=bar:force -O /root/.fonts/FiraCode-${type}.ttf \
+    "https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true";
+done
+# for type in Bold Light Medium Regular Retina; do
+#     wget -O ~/.local/share/fonts/FiraCode-${type}.ttf \
+#     "https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true";
+# done
+
+fc-cache -vf /root/.fonts/
+# echo "set guifont=Droid\\ Sans\\ Mono\\ 10"
