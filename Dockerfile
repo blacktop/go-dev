@@ -43,15 +43,15 @@ RUN apt-get update && apt-get install -y software-properties-common \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/*
 
-RUN mkdir -p ~/.config/nvim
-COPY vimrc ~/.config/nvim/init.vim
-RUN ln -s ~/.config/nvim/init.vim ~/.vimrc
+RUN mkdir -p /root/.config/nvim
+COPY vimrc /root/.config/nvim/init.vim
+RUN ln -s /root/.config/nvim/init.vim /root/.vimrc
 
 # Install vim plugin manager
 RUN buildDeps='ca-certificates curl' \
   && set -x \
   && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
-  && curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+  && curl -fLo /root/.local/share/nvim/site/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
   && echo "===> Clean up unnecessary files..." \
   && apt-get purge -y --auto-remove $buildDeps \
@@ -68,14 +68,14 @@ RUN buildDeps='ca-certificates wget fontconfig' \
   && fc-cache -vf $HOME/.fonts/ \
   && echo "set guifont=Droid\\ Sans\\ Mono\\ 10" \
   && echo "===> Clean up unnecessary files..." \
-  && apt-get purge -y --auto-remove $buildDeps $(apt-mark showauto) \
+  && apt-get purge -y --auto-remove $buildDeps \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/*
 
 # Install vim plugins
 COPY install-vim-plugins /tmp/install-vim-plugins
 # RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins
-RUN nvim -E -u NONE -S ~/.vimrc +qall
+# RUN nvim -E -u NONE -S ~/.config/nvim/init.vim +qall > /dev/null
 
 #######################
 ## INSTALL MISC. ######
@@ -100,7 +100,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
-RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-COPY zshrc ~/.zshrc
+RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
+COPY zshrc /root/.zshrc
 
 ENTRYPOINT ["zsh"]
