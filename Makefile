@@ -3,7 +3,11 @@ NAME=go-dev
 VERSION=1.0
 
 build: ## Build docker image
+ifeq "$(VERSION)" "ubuntu"
+	docker build -f Dockerfile.ubuntu -t $(ORG)/$(NAME):ubuntu .
+else
 	docker build -t $(ORG)/$(NAME):$(VERSION) .
+endif
 
 .PHONY: size
 size: ## Update docker image size in README.md
@@ -11,7 +15,11 @@ size: ## Update docker image size in README.md
 
 .PHONY: ssh
 ssh: ## SSH into docker image
+ifeq "$(VERSION)" "ubuntu"
+	docker run -ti --rm $(ORG)/$(NAME):ubuntu
+else
 	docker run -ti --rm $(ORG)/$(NAME):$(VERSION)
+endif
 
 .PHONY: push
 push: build ## Push docker image to docker registry
@@ -21,6 +29,7 @@ push: build ## Push docker image to docker registry
 clean: ## Clean docker image and stop all running containers
 	docker-clean stop
 	docker rmi $(ORG)/$(NAME):$(VERSION) || true
+	docker rmi $(ORG)/$(NAME):ubuntu || true
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

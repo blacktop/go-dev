@@ -164,10 +164,11 @@ nnoremap N Nzzzv
 " Navigation
 "----------------------------------------------
 " Disable arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
 
 " Move between buffers with Shift + arrow key...
 nnoremap <S-Left> :bprevious<cr>
