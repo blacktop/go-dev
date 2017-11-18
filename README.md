@@ -6,21 +6,18 @@ go-dev
 > Golang Dev Env Dockerfile
 ___
 
-### Dependencies
+Dependencies
+------------
 
--	[ubuntu:xenial](https://hub.docker.com/_/ubuntu/)
+-	[golang:alpine](https://hub.docker.com/_/golang/)
 
-### Features  
+Features  
+--------
 
-#### `language`
+- language: [golang](https://golang.org/dl/) - `1.9.2`  
+- vim: [NeoVim](https://neovim.io) - `2.2.0`  
 
-- [Golang](https://golang.org/dl/) Version: `1.9.2`
-
-#### `vim`
-
-Editor
-
-- [NeoVim](https://neovim.io) Version: `2.2.0`
+### vim  
 
 Plugin Manager
 
@@ -30,6 +27,6 @@ Plugins
 
 - [vim-go](https://github.com/fatih/vim-go)
 
-#### `zsh`
+### shell
 
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
