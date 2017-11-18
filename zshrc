@@ -79,6 +79,8 @@ export LC_TIME="C.UTF-8"
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Golang
+export GOPATH=/go
+export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 alias cdgo='CDPATH=.:$GOPATH/src/github.com:$GOPATH/src/golang.org:$GOPATH/src'
 
 alias vi="nvim"

@@ -43,10 +43,7 @@ RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins || true
 ## INSTALL MISC. ######
 #######################
 
-RUN apk add --no-cache \
-		zsh \
-		tmux \
-  && rm -rf /tmp/*
+RUN apk add --no-cache zsh tmux && rm -rf /tmp/*
 
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
 
