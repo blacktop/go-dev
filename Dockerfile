@@ -6,7 +6,7 @@ LABEL maintainer "https://github.com/blacktop"
 ## INSTALL NEOVIM #####
 #######################
 
-RUN apk add --no-cache neovim git ca-certificates python3 gcc
+RUN apk add --no-cache neovim git ca-certificates python3 tzdata bash
 
 RUN mkdir -p /root/.config/nvim
 COPY vimrc /root/.config/nvim/init.vim
@@ -46,11 +46,14 @@ RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins || true
 RUN apk add --no-cache zsh tmux && rm -rf /tmp/*
 
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
+RUN git clone https://github.com/tmux-plugins/tpm /root/.tmux/plugins/tpm
+RUN git clone https://github.com/tmux-plugins/tmux-cpu /root/.tmux/plugins/tmux-cpu
+RUN git clone https://github.com/tmux-plugins/tmux-prefix-highlight.git /root/.tmux/plugins/tmux-prefix-highlight
 
 COPY zshrc /root/.zshrc
 COPY tmux.conf /root/.tmux.conf
 COPY tmux.linux.conf /root/.tmux.linux.conf
 
-# RUN go get -d -v github.com/maliceio/engine/... || true
+# RUN go get -d -v github.com/maliceio/engine/...
 
 ENTRYPOINT ["zsh"]
