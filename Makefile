@@ -12,7 +12,7 @@ build: dockerfile ## Build docker image
 ifeq "$(VERSION)" "ubuntu"
 	docker build -f Dockerfile.ubuntu -t $(ORG)/$(NAME):ubuntu .
 else
-	docker build --squash -t $(ORG)/$(NAME):$(VERSION) .
+	docker build -t $(ORG)/$(NAME):$(VERSION) .
 endif
 
 .PHONY: size

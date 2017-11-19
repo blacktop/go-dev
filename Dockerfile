@@ -4,9 +4,9 @@ LABEL maintainer "https://github.com/blacktop"
 
 RUN apk add --no-cache neovim git ca-certificates python3 tzdata bash ctags
 
-#######################
-## INSTALL ZSH/TMUX ###
-#######################
+#####################
+## SETUP ZSH/TMUX ###
+#####################
 
 RUN apk add --no-cache zsh tmux && rm -rf /tmp/*
 
@@ -19,9 +19,9 @@ COPY zshrc /root/.zshrc
 COPY tmux.conf /root/.tmux.conf
 COPY tmux.linux.conf /root/.tmux.linux.conf
 
-#######################
-## INSTALL NEOVIM #####
-#######################
+#####################
+## SETUP NEOVIM #####
+#####################
 
 # Install vim plugin manager
 RUN apk add --no-cache curl \
