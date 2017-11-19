@@ -31,3 +31,4 @@ NOTES
 -----
 
 - https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876
+- https://farazdagi.com/2015/vim-as-go-language-ide/

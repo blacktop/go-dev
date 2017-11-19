@@ -404,6 +404,15 @@ let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
 let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
 "----------------------------------------------
+" Plug 'scrooloose/nerdcommenter'"
+"----------------------------------------------
+let g:NERDCreateDefaultMappings = 0
+nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
+vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
+" nnoremap ,c :call NERDComment(0,"toggle")<CR>
+" vnoremap ,c :call NERDComment(0,"toggle")<CR>
+
+"----------------------------------------------
 " Plugin: scrooloose/nerdtree
 "----------------------------------------------
 nnoremap <leader>d :NERDTreeToggle<cr>
