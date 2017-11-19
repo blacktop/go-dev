@@ -1,7 +1,7 @@
 go-dev
 ======
 
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/go-dev.svg)](https://hub.docker.com/r/blacktop/go-dev/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/go-dev.svg)](https://hub.docker.com/r/blacktop/go-dev/) [![Docker Image](https://img.shields.io/badge/docker%20image-845MB-blue.svg)](https://hub.docker.com/r/blacktop/go-dev/)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/go-dev.svg)](https://hub.docker.com/r/blacktop/go-dev/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/go-dev.svg)](https://hub.docker.com/r/blacktop/go-dev/) [![Docker Image](https://img.shields.io/badge/docker%20image-846MB-blue.svg)](https://hub.docker.com/r/blacktop/go-dev/)
 
 > Golang Dev Env Dockerfile
 ___
@@ -32,3 +32,4 @@ NOTES
 
 - https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876
 - https://farazdagi.com/2015/vim-as-go-language-ide/
+- [powerline font](https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf)

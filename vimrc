@@ -20,6 +20,7 @@ Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Needed to make sebdah/vim-delve work on Vim
 Plug 'Shougo/vimshell.vim'                  " Needed to make sebdah/vim-delve work on Vim
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'easymotion/vim-easymotion'
@@ -278,7 +279,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 0
 
 " Enable powerline fonts.
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 
 " Explicitly define some symbols that did not work well for me in Linux.
 if !exists('g:airline_symbols')
@@ -286,6 +287,9 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.space = "\ua0"
+
+let g:airline_solarized_bg='dark'
 
 "----------------------------------------------
 " Plugin: christoomey/vim-tmux-navigator
