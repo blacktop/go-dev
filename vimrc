@@ -135,6 +135,8 @@ set background=dark
 " silent! colorscheme PaperColor
 silent! colorscheme solarized
 
+let g:solarized_visibility="low"
+
 " Override the search highlight color with a combination that is easier to
 " read. The default PaperColor is dark green backgroun with black foreground.
 "
