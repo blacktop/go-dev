@@ -2,7 +2,9 @@
 .git*
 .gitignore
 
+VERSION
 LICENSE
 Makefile
 README.md
 README.md.bu
+screenshot.png

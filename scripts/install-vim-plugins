@@ -16,6 +16,7 @@ go get -u github.com/spf13/cobra/cobra
 go get -u github.com/golang/dep/cmd/dep
 go get -u github.com/fatih/structs
 go get -u github.com/gorilla/mux
+go get -u github.com/gorilla/handlers
 go get -u github.com/parnurzeal/gorequest
 go get -u github.com/urfave/cli
 go get -u github.com/apex/log/...

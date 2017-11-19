@@ -48,7 +48,7 @@ RUN apk add --no-cache zsh tmux && rm -rf /tmp/*
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
 RUN git clone https://github.com/tmux-plugins/tpm /root/.tmux/plugins/tpm
 RUN git clone https://github.com/tmux-plugins/tmux-cpu /root/.tmux/plugins/tmux-cpu
-RUN git clone https://github.com/tmux-plugins/tmux-prefix-highlight.git /root/.tmux/plugins/tmux-prefix-highlight
+RUN git clone https://github.com/tmux-plugins/tmux-prefix-highlight /root/.tmux/plugins/tmux-prefix-highlight
 
 COPY zshrc /root/.zshrc
 COPY tmux.conf /root/.tmux.conf
