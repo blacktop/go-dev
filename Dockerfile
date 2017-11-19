@@ -6,7 +6,7 @@ LABEL maintainer "https://github.com/blacktop"
 ## INSTALL NEOVIM #####
 #######################
 
-RUN apk add --no-cache neovim git ca-certificates python3 tzdata bash
+RUN apk add --no-cache neovim git ca-certificates python3 tzdata bash ctags
 
 RUN mkdir -p /root/.config/nvim
 COPY vimrc /root/.config/nvim/init.vim

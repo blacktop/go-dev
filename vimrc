@@ -62,6 +62,7 @@ Plug 'zchee/deoplete-jedi'
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -130,7 +131,8 @@ nnoremap <space> zz
 " Colors
 "----------------------------------------------
 set background=dark
-silent! colorscheme PaperColor
+" silent! colorscheme PaperColor
+silent! colorscheme solarized
 
 " Override the search highlight color with a combination that is easier to
 " read. The default PaperColor is dark green backgroun with black foreground.
