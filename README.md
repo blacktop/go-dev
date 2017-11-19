@@ -11,7 +11,7 @@ Dependencies
 
 -	[golang:alpine](https://hub.docker.com/_/golang/)
 
-![screenshot](https://github.com/blacktop/docker-bro/raw/master/screenshot.png)
+![screenshot](https://github.com/blacktop/go-dev/raw/master/screenshot.png)
 
 Features  
 --------
