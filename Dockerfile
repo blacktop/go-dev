@@ -44,7 +44,7 @@ COPY nvim/snippets /root/.config/nvim/snippets
 COPY nvim/spell /root/.config/nvim/spell
 
 COPY scripts/install-vim-plugins /tmp/install-vim-plugins
-RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins || true
+RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins
 
 # RUN go get -d -v github.com/maliceio/engine/...
 
