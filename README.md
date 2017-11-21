@@ -11,7 +11,13 @@ Dependencies
 
 -	[golang:alpine](https://hub.docker.com/_/golang/)
 
-![screenshot](https://github.com/blacktop/go-dev/raw/master/screenshot.png)
+Solarized Dark  
+
+![screenshot1](https://github.com/blacktop/go-dev/raw/master/solarized-dark.png)
+
+PaperColor
+
+![screenshot2](https://github.com/blacktop/go-dev/raw/master/paper-color.png)
 
 Features  
 --------
