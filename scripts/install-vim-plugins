@@ -1,10 +1,6 @@
 #!/bin/sh
 
-echo "===> nvim PlugInstall..."
-nvim -c ':PlugInstall' -c ':qa!' > /dev/null
-
-echo "===> nvim GoUpdateBinaries..."
-nvim -c ':GoUpdateBinaries' -c ':qa!' > /dev/null
+echo "===> go get popular golang libs..."
 # deoplete-go
 go get -u github.com/nsf/gocode
 # sebdah/vim-delve
@@ -20,3 +16,17 @@ go get -u github.com/gorilla/handlers
 go get -u github.com/parnurzeal/gorequest
 go get -u github.com/urfave/cli
 go get -u github.com/apex/log/...
+
+echo "===> nvim PlugInstall..."
+/usr/bin/nvim --noplugin -u NONE -N \
+  +"set shm+=WAFI" \
+  +'filetype plugin indent on' \
+  +'packloadall!' \
+  +':silent :PlugInstall' -c ':qa'
+
+echo "===> nvim GoUpdateBinaries..."
+/usr/bin/nvim --noplugin -u NONE -N \
+  +"set shm+=WAFI" \
+  +'filetype plugin indent on' \
+  +'packloadall!' \
+  +':silent :GoUpdateBinaries' +':qa'
