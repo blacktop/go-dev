@@ -48,4 +48,14 @@ RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins
 
 # RUN go get -d -v github.com/maliceio/engine/...
 
-ENTRYPOINT ["zsh"]
+ENV TERM=screen-256color
+# Setup Language Environtment
+ENV LANG="C.UTF-8"
+ENV LC_COLLATE="C.UTF-8"
+ENV LC_CTYPE="C.UTF-8"
+ENV LC_MESSAGES="C.UTF-8"
+ENV LC_MONETARY="C.UTF-8"
+ENV LC_NUMERIC="C.UTF-8"
+ENV LC_TIME="C.UTF-8"
+
+ENTRYPOINT ["tmux"]
