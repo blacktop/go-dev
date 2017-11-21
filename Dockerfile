@@ -56,14 +56,30 @@ RUN echo "===> go get popular golang libs..." \
 && go get -u github.com/parnurzeal/gorequest \
 && go get -u github.com/urfave/cli \
 && go get -u github.com/apex/log/...
+# Go get vim-go binaries
+RUN echo "===> get vim-go binaries..." \
+  && go get github.com/klauspost/asmfmt/cmd/asmfmt \
+  && go get github.com/kisielk/errcheck \
+  && go get github.com/davidrjenni/reftools/cmd/fillstruct \
+  && go get github.com/rogpeppe/godef \
+  && go get github.com/zmb3/gogetdoc \
+  && go get golang.org/x/tools/cmd/goimports \
+  && go get github.com/golang/lint/golint \
+  && go get github.com/alecthomas/gometalinter \
+  && go get github.com/fatih/gomodifytags \
+  && go get golang.org/x/tools/cmd/gorename \
+  && go get github.com/jstemmer/gotags \
+  && go get golang.org/x/tools/cmd/guru \
+  && go get github.com/josharian/impl \
+  && go get github.com/dominikh/go-tools/cmd/keyify \
+  && go get github.com/fatih/motion
+
 # Install nvim plugins
 RUN apk add --no-cache -t .build-deps build-base python3-dev \
   && echo "===> neovim PlugInstall..." \
   && nvim -i NONE -c PlugInstall -c quitall > /dev/null 2>&1 \
   && echo "===> neovim UpdateRemotePlugins..." \
   && nvim -i NONE -c UpdateRemotePlugins -c quitall > /dev/null 2>&1 \
-  && echo "===> neovim GoUpdateBinaries..." \
-  && nvim -i NONE -c GoUpdateBinaries -c quitall > /dev/null 2>&1 || true \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 
