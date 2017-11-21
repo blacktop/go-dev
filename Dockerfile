@@ -63,7 +63,7 @@ RUN apk add --no-cache -t .build-deps build-base python3-dev \
   && echo "===> neovim UpdateRemotePlugins..." \
   && nvim -i NONE -c UpdateRemotePlugins -c quitall > /dev/null 2>&1 \
   && echo "===> neovim GoUpdateBinaries..." \
-  && nvim -i NONE -c GoUpdateBinaries -c quitall > /dev/null 2>&1 \
+  && nvim -i NONE -c GoUpdateBinaries -c quitall > /dev/null 2>&1 || true \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 
