@@ -132,10 +132,25 @@ nnoremap <space> zz
 " Colors
 "----------------------------------------------
 set background=dark
-" silent! colorscheme PaperColor
 silent! colorscheme solarized
 
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 let g:solarized_visibility="low"
+
+function! UseSolarized()
+  silent! colorscheme solarized
+  let g:airline_theme='solarized'
+  let g:airline_solarized_bg='dark'
+  let g:solarized_visibility="low"
+  execute ":AirlineTheme solarized"
+endfunction
+
+function! UsePaper()
+  silent! colorscheme PaperColor
+  let g:airline_theme='dark'
+  execute ":AirlineTheme dark"
+endfunction
 
 " Override the search highlight color with a combination that is easier to
 " read. The default PaperColor is dark green backgroun with black foreground.
@@ -146,7 +161,8 @@ highlight Search guibg=DeepPink4 guifg=White ctermbg=53 ctermfg=White
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
-
+map <leader>bp :call UsePaper()<cr>
+map <leader>bz :call UseSolarized()<cr>
 "----------------------------------------------
 " Searching
 "----------------------------------------------
@@ -292,8 +308,6 @@ endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.space = "\ua0"
-
-let g:airline_solarized_bg='dark'
 
 "----------------------------------------------
 " Plugin: christoomey/vim-tmux-navigator
