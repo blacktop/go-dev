@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -euC
+
+echo "===> go get popular golang libs..."
+# deoplete-go
+go get -u github.com/nsf/gocode
+# sebdah/vim-delve
+go get github.com/derekparker/delve/cmd/dlv
+
+# popular golang libs
+go get -u github.com/sirupsen/logrus
+go get -u github.com/spf13/cobra/cobra
+go get -u github.com/golang/dep/cmd/dep
+go get -u github.com/fatih/structs
+go get -u github.com/gorilla/mux
+go get -u github.com/gorilla/handlers
+go get -u github.com/parnurzeal/gorequest
+go get -u github.com/urfave/cli
+go get -u github.com/apex/log/...
+
+# vim:ts=2:sts=2:sw=2:et

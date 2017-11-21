@@ -43,8 +43,14 @@ RUN ln -s /root/.config/nvim/init.vim /root/.vimrc
 COPY nvim/snippets /root/.config/nvim/snippets
 COPY nvim/spell /root/.config/nvim/spell
 
-COPY scripts/install-vim-plugins /tmp/install-vim-plugins
-RUN chmod +x /tmp/install-vim-plugins && /tmp/install-vim-plugins
+COPY scripts /tmp/scripts
+# Go get popular golang libs
+RUN /tmp/scripts/install-go-libs
+# Install nvim plugins
+RUN apk add --no-cache -t .build-deps build-base python3-dev \
+  && /tmp/scripts/install-vim-plugins \
+  && rm -rf /tmp/* \
+  && apk del --purge .build-deps
 
 # RUN go get -d -v github.com/maliceio/engine/...
 
