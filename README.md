@@ -11,11 +11,11 @@ Dependencies
 
 -	[golang:alpine](https://hub.docker.com/_/golang/)
 
-Solarized Dark  
+Solarized Dark *(default)*: `,bz`
 
 ![screenshot1](https://github.com/blacktop/go-dev/raw/master/solarized-dark.png)
 
-PaperColor
+PaperColor: `,bp`
 
 ![screenshot2](https://github.com/blacktop/go-dev/raw/master/paper-color.png)
 
