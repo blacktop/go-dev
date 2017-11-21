@@ -233,6 +233,7 @@ function! BookmarkMapKeys()
     nmap Ma :BookmarkShowAll<cr>
     nmap Mc :BookmarkClear<cr>
     nmap Mx :BookmarkClearAll<cr>
+    nmap Mw :BookmarkSave 0<cr>
     nmap Mkk :BookmarkMoveUp
     nmap Mjj :BookmarkMoveDown
 endfunction
@@ -244,6 +245,7 @@ function! BookmarkUnmapKeys()
     unmap Ma
     unmap Mc
     unmap Mx
+    unmap Mw
     unmap Mkk
     unmap Mjj
 endfunction
