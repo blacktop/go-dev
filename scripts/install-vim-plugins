@@ -1,10 +1,10 @@
 #!/bin/sh
 
 echo "===> nvim PlugInstall..."
-nvim -c ':PlugInstall' -c ':qa!'
+nvim -c ':PlugInstall' -c ':qa!' > /dev/null
 
 echo "===> nvim GoUpdateBinaries..."
-nvim -c ':GoUpdateBinaries' -c ':qa!'
+nvim -c ':GoUpdateBinaries' -c ':qa!' > /dev/null
 # deoplete-go
 go get -u github.com/nsf/gocode
 # sebdah/vim-delve
