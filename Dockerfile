@@ -83,7 +83,13 @@ RUN apk add --no-cache -t .build-deps build-base python3-dev \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 
-# RUN go get -d -v github.com/maliceio/engine/...
+# Get powerline font just in case (to be installed on the docker host)
+RUN apk add --no-cache wget \
+  && mkdir /root/powerline \
+  && cd /root/powerline \
+  && wget https://github.com/powerline/fonts/raw/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf \
+  && rm -rf /tmp/* \
+  && apk del --purge wget
 
 ENV TERM=screen-256color
 # Setup Language Environtment
@@ -94,5 +100,7 @@ ENV LC_MESSAGES="C.UTF-8"
 ENV LC_MONETARY="C.UTF-8"
 ENV LC_NUMERIC="C.UTF-8"
 ENV LC_TIME="C.UTF-8"
+
+# RUN go get -d -v github.com/maliceio/engine/...
 
 ENTRYPOINT ["tmux"]
