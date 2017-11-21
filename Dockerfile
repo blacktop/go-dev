@@ -2,11 +2,11 @@ FROM golang:1.9.2-alpine
 
 LABEL maintainer "https://github.com/blacktop"
 
-RUN apk add --no-cache neovim git ca-certificates python3 tzdata bash ctags
+RUN apk add --no-cache ca-certificates git python3 ctags tzdata bash neovim
 
-#####################
-## SETUP ZSH/TMUX ###
-#####################
+######################
+### SETUP ZSH/TMUX ###
+######################
 
 RUN apk add --no-cache zsh tmux && rm -rf /tmp/*
 
@@ -19,9 +19,9 @@ COPY zshrc /root/.zshrc
 COPY tmux.conf /root/.tmux.conf
 COPY tmux.linux.conf /root/.tmux.linux.conf
 
-#####################
-## SETUP NEOVIM #####
-#####################
+####################
+### SETUP NEOVIM ###
+####################
 
 # Install vim plugin manager
 RUN apk add --no-cache curl \
@@ -43,12 +43,27 @@ RUN ln -s /root/.config/nvim/init.vim /root/.vimrc
 COPY nvim/snippets /root/.config/nvim/snippets
 COPY nvim/spell /root/.config/nvim/spell
 
-COPY scripts /tmp/scripts
 # Go get popular golang libs
-RUN /tmp/scripts/install-go-libs
+RUN echo "===> go get popular golang libs..." \
+&& go get -u github.com/nsf/gocode \
+&& go get github.com/derekparker/delve/cmd/dlv \
+&& go get -u github.com/sirupsen/logrus \
+&& go get -u github.com/spf13/cobra/cobra \
+&& go get -u github.com/golang/dep/cmd/dep \
+&& go get -u github.com/fatih/structs \
+&& go get -u github.com/gorilla/mux \
+&& go get -u github.com/gorilla/handlers \
+&& go get -u github.com/parnurzeal/gorequest \
+&& go get -u github.com/urfave/cli \
+&& go get -u github.com/apex/log/...
 # Install nvim plugins
 RUN apk add --no-cache -t .build-deps build-base python3-dev \
-  && /tmp/scripts/install-vim-plugins \
+  && echo "===> neovim PlugInstall..." \
+  && nvim -i NONE -c PlugInstall -c quitall > /dev/null 2>&1 \
+  && echo "===> neovim UpdateRemotePlugins..." \
+  && nvim -i NONE -c UpdateRemotePlugins -c quitall > /dev/null 2>&1 \
+  && echo "===> neovim GoUpdateBinaries..." \
+  && nvim -i NONE -c GoUpdateBinaries -c quitall > /dev/null 2>&1 \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 
