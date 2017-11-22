@@ -37,5 +37,6 @@ PaperColor: `,bp`
 ![screenshot2](https://github.com/blacktop/go-dev/raw/master/paper-color.png)
 
 License
+-------
 
 MIT Copyright (c) 2017 blacktop
