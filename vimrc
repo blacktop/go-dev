@@ -43,6 +43,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
+Plug 'ryanoasis/vim-devicons'
 
 " Language support
 Plug 'aklt/plantuml-syntax'
@@ -64,6 +65,7 @@ Plug 'zchee/deoplete-jedi'
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'altercation/vim-colors-solarized'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
