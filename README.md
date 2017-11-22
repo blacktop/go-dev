@@ -11,14 +11,6 @@ Dependencies
 
 -	[golang:alpine](https://hub.docker.com/_/golang/)
 
-Solarized Dark *(default)*: `,bz`
-
-![screenshot1](https://github.com/blacktop/go-dev/raw/master/solarized-dark.png)
-
-PaperColor: `,bp`
-
-![screenshot2](https://github.com/blacktop/go-dev/raw/master/paper-color.png)
-
 Features  
 --------
 
@@ -32,3 +24,18 @@ Features
   - [vim-plug](https://github.com/junegunn/vim-plug)
 - Plugins  
   - [vim-go](https://github.com/fatih/vim-go)
+
+Colorschemes
+------------
+
+Solarized Dark *(default)*: `,bz`
+
+![screenshot1](https://github.com/blacktop/go-dev/raw/master/solarized-dark.png)
+
+PaperColor: `,bp`
+
+![screenshot2](https://github.com/blacktop/go-dev/raw/master/paper-color.png)
+
+License
+
+MIT Copyright (c) 2017 blacktop
