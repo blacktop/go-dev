@@ -494,7 +494,7 @@ let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 "----------------------------------------------
 " Path to wiki
 let g:vimwiki_list = [{
-        \ 'path': '~/Dropbox/vimwiki',
+        \ 'path': '~/Library/Mobile Documents/com~apple~CloudDocs/vimwiki',
         \ 'syntax': 'markdown',
         \ 'ext': '.vimwiki.markdown'}]
 
