@@ -1,7 +1,7 @@
 go-dev
 ======
 
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/go-dev.svg)](https://hub.docker.com/r/blacktop/go-dev/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/go-dev.svg)](https://hub.docker.com/r/blacktop/go-dev/) [![Docker Image](https://img.shields.io/badge/docker%20image-900MB-blue.svg)](https://hub.docker.com/r/blacktop/go-dev/)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/go-dev.svg)](https://hub.docker.com/r/blacktop/go-dev/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/go-dev.svg)](https://hub.docker.com/r/blacktop/go-dev/) [![Docker Image](https://img.shields.io/badge/docker%20image-903MB-blue.svg)](https://hub.docker.com/r/blacktop/go-dev/)
 
 > Golang Dev Env Dockerfile
 
@@ -15,8 +15,10 @@ Dependencies
 Getting Started
 ---------------
 
+Clone the repo you want to work on and then:
+
 ```sh
-$ git clone https://github.com/maliceio/malice.git
+$ git clone https://github.com/maliceio/engine.git
 $ cd engine
 $ docker run --init -it --rm -v `pwd`:/go/src/github.com/maliceio/engine blacktop/go-dev
 ```
