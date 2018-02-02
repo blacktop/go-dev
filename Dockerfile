@@ -1,4 +1,4 @@
-FROM golang:1.9.2-alpine
+FROM golang:1.9.3-alpine
 
 LABEL maintainer "https://github.com/blacktop"
 
@@ -26,7 +26,7 @@ COPY tmux.linux.conf /root/.tmux.linux.conf
 # Install vim plugin manager
 RUN apk add --no-cache curl \
   && curl -fLo /root/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
   && rm -rf /tmp/* \
   && apk del --purge curl
 
@@ -45,17 +45,17 @@ COPY nvim/spell /root/.config/nvim/spell
 
 # Go get popular golang libs
 RUN echo "===> go get popular golang libs..." \
-&& go get -u github.com/nsf/gocode \
-&& go get github.com/derekparker/delve/cmd/dlv \
-&& go get -u github.com/sirupsen/logrus \
-&& go get -u github.com/spf13/cobra/cobra \
-&& go get -u github.com/golang/dep/cmd/dep \
-&& go get -u github.com/fatih/structs \
-&& go get -u github.com/gorilla/mux \
-&& go get -u github.com/gorilla/handlers \
-&& go get -u github.com/parnurzeal/gorequest \
-&& go get -u github.com/urfave/cli \
-&& go get -u github.com/apex/log/...
+  && go get -u github.com/nsf/gocode \
+  && go get github.com/derekparker/delve/cmd/dlv \
+  && go get -u github.com/sirupsen/logrus \
+  && go get -u github.com/spf13/cobra/cobra \
+  && go get -u github.com/golang/dep/cmd/dep \
+  && go get -u github.com/fatih/structs \
+  && go get -u github.com/gorilla/mux \
+  && go get -u github.com/gorilla/handlers \
+  && go get -u github.com/parnurzeal/gorequest \
+  && go get -u github.com/urfave/cli \
+  && go get -u github.com/apex/log/...
 # Go get vim-go binaries
 RUN echo "===> get vim-go binaries..." \
   && go get github.com/klauspost/asmfmt/cmd/asmfmt \
