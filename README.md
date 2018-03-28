@@ -22,9 +22,9 @@ $ docker run --init -it --rm -v `pwd`:/go/src/github.com/maliceio/engine blackto
 
 ## Features
 
-* language: [golang](https://golang.org/dl/) - `1.9.2`
+* language: [golang](https://golang.org/dl/) - `1.10`
 * editor: [neovim](https://neovim.io) - `2.2.0`
-* shell: [zsh](https://github.com/robbyrussell/oh-my-zsh)
+* shell: [zsh](https://github.com/robbyrussell/oh-my-zsh) _(should I switch to fish?)_
 
 ### vim
 
@@ -38,6 +38,8 @@ $ docker run --init -it --rm -v `pwd`:/go/src/github.com/maliceio/engine blackto
 Solarized Dark _(default)_: `,bz`
 
 ![screenshot1](https://github.com/blacktop/go-dev/raw/master/solarized-dark.png)
+
+> **NOTE:** I am using the [solarized](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized) iterm2 theme, if you aren't using it you might see weird results for the default theme. See Issue [#1](https://github.com/blacktop/go-dev/issues/1)
 
 PaperColor: `,bp`
 
