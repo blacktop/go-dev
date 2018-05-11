@@ -46,7 +46,7 @@ COPY nvim/spell /root/.config/nvim/spell
 # Go get popular golang libs
 RUN echo "===> go get popular golang libs..." \
   && go get -u github.com/nsf/gocode \
-  && go get github.com/derekparker/delve/cmd/dlv \
+  && go get -u github.com/derekparker/delve/cmd/dlv \
   && go get -u github.com/sirupsen/logrus \
   && go get -u github.com/spf13/cobra/cobra \
   && go get -u github.com/golang/dep/cmd/dep \
