@@ -23,7 +23,7 @@ $ docker run --init -it --rm -v `pwd`:/go/src/github.com/maliceio/engine blackto
 Or map your `$GOPATH` inside the container:
 
 ```sh
-$ alias gvim="docker run --init -it --rm -v $GOPATH:/go -v /etc/localtime:/etc/localtime:ro  blacktop/go-dev"
+$ alias gvim="docker run --init -it --rm -v $GOPATH:/go -v /etc/localtime:/etc/localtime:ro blacktop/go-dev"
 ```
 
 ## Features
