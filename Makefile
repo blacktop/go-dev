@@ -22,7 +22,7 @@ size: ## Update docker image size in README.md
 .PHONY: run
 run: ## Run docker image
 	@echo "===> Running $(ORG)/$(NAME):$(VERSION)..."
-	@docker run --init -it --rm -v $GOPATH:/go $(ORG)/$(NAME):$(VERSION)
+	@docker run --init -it --rm -v $(GOPATH):/go $(ORG)/$(NAME):$(VERSION)
 
 .PHONY: ssh
 ssh: ## SSH into docker image
