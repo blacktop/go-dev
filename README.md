@@ -20,6 +20,12 @@ $ cd engine
 $ docker run --init -it --rm -v `pwd`:/go/src/github.com/maliceio/engine blacktop/go-dev
 ```
 
+Or map your `$GOPATH` inside the container:
+
+```sh
+$ alias gvim="docker run --init -it --rm -v $GOPATH:/go -v /etc/localtime:/etc/localtime:ro  blacktop/go-dev"
+```
+
 ## Features
 
 * language: [golang](https://golang.org/dl/) - `1.10`

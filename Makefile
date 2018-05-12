@@ -19,6 +19,11 @@ endif
 size: ## Update docker image size in README.md
 	sed -i.bu 's/docker%20image-.*-blue/docker%20image-$(shell docker images --format "{{.Size}}" $(ORG)/$(NAME):$(VERSION)| cut -d' ' -f1)-blue/' README.md
 
+.PHONY: run
+run: ## Run docker image
+	@echo "===> Running $(ORG)/$(NAME):$(VERSION)..."
+	@docker run --init -it --rm -e GOPATH=/mygo -v $(GOPATH):/mygo $(ORG)/$(NAME):$(VERSION)
+
 .PHONY: ssh
 ssh: ## SSH into docker image
 ifeq "$(VERSION)" "ubuntu"
