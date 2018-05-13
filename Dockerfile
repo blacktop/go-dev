@@ -2,7 +2,7 @@ FROM golang:1.10-alpine
 
 LABEL maintainer "https://github.com/blacktop"
 
-RUN apk add --no-cache ca-certificates git python3 ctags tzdata bash neovim
+RUN apk add --no-cache ca-certificates git python3 ctags tzdata bash neovim neovim-doc
 
 ######################
 ### SETUP ZSH/TMUX ###
