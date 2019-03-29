@@ -28,8 +28,8 @@ $ alias gvim="docker run --init -it --rm -v $GOPATH:/go -v /etc/localtime:/etc/l
 
 ## Features
 
-* language: [golang](https://golang.org/dl/) - `1.10`
-* editor: [neovim](https://neovim.io) - `2.2.0`
+* language: [golang](https://golang.org/dl/) - `1.12.1`
+* editor: [neovim](https://neovim.io) - `0.3.1`
 * shell: [zsh](https://github.com/robbyrussell/oh-my-zsh) _(should I switch to fish?)_
 
 ### vim
@@ -59,4 +59,4 @@ Want that beautiful **menlo** (default on macOS) font?
 
 ## License
 
-MIT Copyright (c) 2017-2018 blacktop
+MIT Copyright (c) 2017-2019 blacktop

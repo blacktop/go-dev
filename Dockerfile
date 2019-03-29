@@ -1,4 +1,4 @@
-FROM golang:1.10-alpine
+FROM golang:1.12.1-alpine
 
 LABEL maintainer "https://github.com/blacktop"
 
